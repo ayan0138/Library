@@ -1,4 +1,6 @@
 package com.example.library.catalog.model;
 
-public class WorkType {
+public enum WorkType {
+    BOOK, ARTICLE, VIDEO
 }
+
