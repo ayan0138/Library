@@ -33,7 +33,7 @@ public class WorkController {
     }
 
     // POST /api/works
-    @PostMapping
+    @PostMapping("/api/works")
     public ResponseEntity<Work> create(@RequestBody Work work) {
         Work saved = workService.createWork(work);
         return ResponseEntity.created(URI.create("/api/works/" + saved.getId())).body(saved);

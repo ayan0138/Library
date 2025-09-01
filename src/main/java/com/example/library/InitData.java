@@ -6,6 +6,8 @@ import com.example.library.catalog.repository.WorkRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class InitData implements CommandLineRunner {
 
@@ -18,7 +20,7 @@ public class InitData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Work w1 = new Work();
-        w1.setTitle("Java");
+        w1.setTitle("Clean Code Java");
         w1.setWorkType(WorkType.BOOK);
         w1.setDetails("A book about software architecture by Robert C. Martin");
         w1.setAuthors("Robert C. Martin");
@@ -39,8 +41,10 @@ public class InitData implements CommandLineRunner {
         w3.setSubjects("Spring, Framework");
 
         // save them
-        workRepository.save(w1);
+      workRepository.saveAll(List.of(w1, w2, w3));
+
+       /* workRepository.save(w1);
         workRepository.save(w2);
-        workRepository.save(w3);
+        workRepository.save(w3); OR THIS WAY SEPERATED */
     }
 }
